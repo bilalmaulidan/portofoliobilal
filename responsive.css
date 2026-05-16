@@ -1,0 +1,349 @@
+/* ============================================================
+   CANVAS — Cinematic Editorial Portfolio
+   responsive.css — Mobile & breakpoint overrides
+   ============================================================ */
+
+/* ─────────────────────────────────────────────
+   LARGE DESKTOP (1400px+)
+   Max-width constraints handled via max-width: 1400px
+   on inner containers — no specific overrides needed.
+   ───────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────
+   TABLET / MEDIUM (< 1024px)
+   ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Hero */
+  .hero {
+    padding: 0 2rem;
+  }
+
+  .hero__subtext {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .hero__number {
+    right: -4rem;
+    opacity: 0.5;
+  }
+
+  /* About — stack to single column */
+  .about {
+    padding: 8rem 2rem;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about__headline {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  /* Projects */
+  .projects {
+    padding: 0 2rem 8rem;
+  }
+
+  /* Podcast — stack vertically */
+  .project--podcast {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .project--podcast .project__media--podcast {
+    order: 0; /* reset order */
+  }
+
+  /* Closing */
+  .closing {
+    padding: 6rem 2rem;
+  }
+
+  .closing__content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Nav */
+  .nav {
+    padding: 1.25rem 2rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE (< 768px)
+   Optimized parallax, simplified motion, stacked layouts
+   ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Reduce parallax intensity and blob sizes on mobile */
+  .blob {
+    filter: blur(80px);
+  }
+
+  .blob--1 {
+    width: 400px;
+    height: 400px;
+  }
+
+  .blob--2 {
+    width: 350px;
+    height: 350px;
+  }
+
+  .blob--3 {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Hide large geometric objects on mobile — reduce visual noise */
+  .geo--circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .geo--square {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* ─── Navigation ─── */
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav__links {
+    display: none; /* hidden on mobile, menu btn shows instead */
+  }
+
+  .nav__menu-btn {
+    display: flex;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    padding: 0 1.5rem;
+    min-height: 100svh;
+    align-items: flex-end;
+    padding-bottom: 8rem;
+  }
+
+  .hero__inner {
+    padding-top: 6rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+    line-height: 0.85;
+  }
+
+  .hero__subtext {
+    max-width: 100%;
+  }
+
+  .hero__subtext p {
+    font-size: 0.9rem;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Hide large decorative number on small screens */
+  .hero__number {
+    display: none;
+  }
+
+  /* ─── About ─── */
+  .about {
+    padding: 6rem 1.5rem;
+  }
+
+  .about__grid {
+    gap: 3rem;
+  }
+
+  .about__headline {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  /* ─── Section labels ─── */
+  .section-label {
+    margin-bottom: 2rem;
+  }
+
+  /* ─── Projects ─── */
+  .projects {
+    padding: 0 1.5rem 6rem;
+  }
+
+  .projects__header {
+    margin-bottom: 4rem;
+  }
+
+  .projects__headline {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .project {
+    margin-bottom: 6rem;
+  }
+
+  .project__meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .project__title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  /* Infographic — narrower portrait */
+  .media-frame--portrait {
+    width: 100%;
+  }
+
+  .media-scroll-container {
+    height: 480px;
+  }
+
+  /* Poster — shorter max height on mobile */
+  .media-frame--landscape {
+    max-height: 280px;
+  }
+
+  /* Podcast — stack (already handled at 1024px) */
+  .project--podcast {
+    gap: 2rem;
+  }
+
+  .podcast-controls {
+    gap: 1rem;
+  }
+
+  /* Game — maintain 16:9 but allow touch scroll */
+  .media-frame--game {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* ─── Closing ─── */
+  .closing {
+    padding: 5rem 1.5rem;
+  }
+
+  .closing__content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    gap: 2.5rem;
+  }
+
+  .closing__headline {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SMALL MOBILE (< 480px)
+   ───────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  .hero__headline {
+    font-size: clamp(3rem, 18vw, 4.5rem);
+  }
+
+  .about__headline {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  /* Reduce grain on very small screens for perf */
+  .bg-grain {
+    opacity: 0.02;
+  }
+
+  /* Podcast player — tighter spacing */
+  .podcast-player {
+    padding: 1rem;
+  }
+
+  .podcast-btn--play {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   REDUCED MOTION — Accessibility
+   Honors prefers-reduced-motion media query
+   ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  /* Disable all parallax — handled in JS too */
+  .bg-grid,
+  .blob,
+  .mesh,
+  .geo {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable reveal animations */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable scroll pulse */
+  .scroll-line {
+    animation: none;
+    opacity: 0.4;
+  }
+
+  /* Disable waveform animation */
+  .podcast-waveform span {
+    animation: none;
+  }
+
+  /* Keep hover underlines but faster */
+  .nav__link::after {
+    transition: transform 0.15s;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PRINT STYLES
+   ───────────────────────────────────────────── */
+@media print {
+  .bg-grid, .bg-blobs, .bg-mesh, .bg-geo, .bg-grain,
+  .nav, .hero__scroll-indicator, .hero__number,
+  .custom-cursor, .custom-cursor-ring {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CANVAS — Creative Portfolio</title>
+
+  <!-- Editorial Fonts via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       DEPTH PARALLAX SYSTEM — 7 Layer Architecture
+       ============================================================ -->
+
+  <!-- Layer 1: AMOLED Base Background (static, no parallax) -->
+  <div class="bg-base" aria-hidden="true"></div>
+
+  <!-- Layer 2: Subtle Grid Texture -->
+  <div class="bg-grid" id="bg-grid" aria-hidden="true"></div>
+
+  <!-- Layer 3: Giant Ambient Blur Blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob--1" id="blob-1"></div>
+    <div class="blob blob--2" id="blob-2"></div>
+    <div class="blob blob--3" id="blob-3"></div>
+  </div>
+
+  <!-- Layer 4: Floating Gradient Meshes -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="mesh mesh--1" id="mesh-1"></div>
+    <div class="mesh mesh--2" id="mesh-2"></div>
+  </div>
+
+  <!-- Layer 5: Geometric Foreground Objects -->
+  <div class="bg-geo" aria-hidden="true">
+    <div class="geo geo--circle" id="geo-circle"></div>
+    <div class="geo geo--square" id="geo-square"></div>
+    <div class="geo geo--line geo--line-1" id="geo-line1"></div>
+    <div class="geo geo--line geo--line-2" id="geo-line2"></div>
+  </div>
+
+  <!-- Layer 6: Film Grain Noise Overlay -->
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-mark">C</span>
+      <span class="nav__logo-text">ANVAS</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#about" class="nav__link">About</a></li>
+      <li><a href="#projects" class="nav__link">Works</a></li>
+      <li><a href="#closing" class="nav__link">Contact</a></li>
+    </ul>
+    <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav__links">
+      <li><a href="#about" class="mobile-nav__link">About</a></li>
+      <li><a href="#projects" class="mobile-nav__link">Works</a></li>
+      <li><a href="#closing" class="mobile-nav__link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       LAYER 7: CONTENT
+       ============================================================ -->
+  <main class="content-layer">
+
+    <!-- ============================================================
+         SECTION 1: HERO
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+
+        <!-- Eyebrow label -->
+        <div class="hero__eyebrow reveal">
+          <span class="hero__eyebrow-line"></span>
+          <span class="hero__eyebrow-text">Multimedia Communications — 2024</span>
+        </div>
+
+        <!-- Giant editorial headline -->
+        <div class="hero__headline-wrap">
+          <h1 class="hero__headline">
+            <span class="hero__hl-line reveal" data-delay="0">CREATIVE</span>
+            <span class="hero__hl-line reveal" data-delay="1">
+              <em class="hero__hl-italic">works</em>
+            </span>
+            <span class="hero__hl-line reveal" data-delay="2">IN FOCUS</span>
+          </h1>
+        </div>
+
+        <!-- Supporting text — offset right -->
+        <div class="hero__subtext reveal" data-delay="3">
+          <p>A curated exhibition of multimedia assignments exploring the intersection of design, storytelling, and interactive communication.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="hero__cta reveal" data-delay="4">
+          <a href="#projects" class="btn btn--primary">Explore Works</a>
+          <a href="#about" class="btn btn--ghost">Learn More</a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero__scroll-indicator" aria-label="Scroll to explore">
+          <div class="scroll-line"></div>
+          <span class="scroll-label">scroll</span>
+        </div>
+
+      </div>
+
+      <!-- Floating editorial number -->
+      <div class="hero__number" aria-hidden="true">05</div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: ABOUT
+         ============================================================ -->
+    <section class="about" id="about">
+      <div class="about__inner">
+
+        <!-- Section label -->
+        <div class="section-label reveal">
+          <span class="section-label__num">01</span>
+          <span class="section-label__text">About This Exhibition</span>
+        </div>
+
+        <!-- Asymmetric two-column layout -->
+        <div class="about__grid">
+          <div class="about__left">
+            <h2 class="about__headline reveal" data-delay="0">
+              Learning through<br />
+              <em>making.</em>
+            </h2>
+            <div class="about__pull-quote reveal" data-delay="1">
+              <blockquote>
+                "Every medium is a new language — and this portfolio is the first conversation."
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="about__right">
+            <div class="about__text-block reveal" data-delay="1">
+              <h3 class="about__subhead">The Purpose</h3>
+              <p>This digital exhibition brings together five distinct multimedia assignments created as part of a university communications program. Each piece explores a different medium — from data visualization to interactive games — unified by a shared curiosity about how ideas travel through different forms.</p>
+            </div>
+
+            <div class="about__text-block reveal" data-delay="2">
+              <h3 class="about__subhead">The Journey</h3>
+              <p>The creative process was iterative, experimental, and often unexpected. Research led to design decisions. Design decisions revealed gaps in understanding. Gaps led back to research. This cyclical rhythm defined the semester.</p>
+            </div>
+
+            <div class="about__text-block reveal" data-delay="3">
+              <h3 class="about__subhead">Tools & Craft</h3>
+              <div class="about__tools">
+                <span class="tool-tag">Adobe Illustrator</span>
+                <span class="tool-tag">Canva</span>
+                <span class="tool-tag">Audacity</span>
+                <span class="tool-tag">CapCut</span>
+                <span class="tool-tag">Genially</span>
+                <span class="tool-tag">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full-width editorial divider -->
+        <div class="about__divider reveal">
+          <span class="about__divider-text">five works — one voice</span>
+          <div class="about__divider-line"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: PROJECTS — Curated Digital Exhibition
+         ============================================================ -->
+    <section class="projects" id="projects">
+      <div class="projects__header">
+        <div class="section-label reveal">
+          <span class="section-label__num">02</span>
+          <span class="section-label__text">The Works</span>
+        </div>
+        <h2 class="projects__headline reveal">
+          A curated<br /><em>exhibition.</em>
+        </h2>
+      </div>
+
+      <!-- ─────────────────────────────────────────────
+           PROJECT 01 — INFOGRAPHIC
+           Tall portrait 2:5 — vertically scrollable
+           ───────────────────────────────────────────── -->
+      <article class="project project--infographic reveal" id="proj-infographic">
+        <div class="project__meta">
+          <span class="project__num">01</span>
+          <div class="project__info">
+            <h3 class="project__title">Infographic</h3>
+            <p class="project__desc">A data-driven visual narrative distilling complex information into a single, scrollable portrait composition. Designed for instant comprehension and lasting recall.</p>
+            <div class="project__tags">
+              <span>Data Visualization</span>
+              <span>Illustration</span>
+              <span>Information Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__media project__media--tall">
+          <!-- Vertical scrolling infographic container (2:5 ratio) -->
+          <div class="media-frame media-frame--portrait">
+            <div class="media-scroll-container">
+              <!-- Replace src with your actual infographic image path -->
+              <img
+                src="assets/infographic.png"
+                alt="Infographic — [Your Topic Here]"
+                class="media-img media-img--portrait"
+                loading="lazy"
+              />
+              <!-- Placeholder shown when image is missing -->
+              <div class="media-placeholder media-placeholder--portrait">
+                <div class="placeholder-inner">
+                  <span class="placeholder-ratio">2 : 5</span>
+                  <span class="placeholder-label">Infographic</span>
+                  <span class="placeholder-hint">Replace src="assets/infographic.png"</span>
+                </div>
+              </div>
+            </div>
+            <div class="media-scroll-hint">
+              <span>↕ scroll to explore</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─────────────────────────────────────────────
+           PROJECT 02 — POSTER
+           Landscape ~1.41:1 — cinematic horizontal
+           ───────────────────────────────────────────── -->
+      <article class="project project--poster reveal" id="proj-poster">
+        <div class="project__media project__media--wide">
+          <div class="media-frame media-frame--landscape">
+            <!-- Replace src with your actual poster image -->
+            <img
+              src="assets/poster.png"
+              alt="Poster — [Your Title Here]"
+              class="media-img media-img--landscape"
+              loading="lazy"
+            />
+            <div class="media-placeholder media-placeholder--landscape">
+              <div class="placeholder-inner">
+                <span class="placeholder-ratio">A3 Landscape</span>
+                <span class="placeholder-label">Poster</span>
+                <span class="placeholder-hint">Replace src="assets/poster.png"</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__meta project__meta--below">
+          <span class="project__num">02</span>
+          <div class="project__info">
+            <h3 class="project__title">Poster Design</h3>
+            <p class="project__desc">A typographic and visual composition communicating a singular idea at impact. Designed for A3 landscape — where every centimetre of white space is intentional.</p>
+            <div class="project__tags">
+              <span>Typography</span>
+              <span>Composition</span>
+              <span>Print Design</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─────────────────────────────────────────────
+           PROJECT 03 — EXPLAINER VIDEO
+           16:9 YouTube embed — cinematic widescreen
+           ───────────────────────────────────────────── -->
+      <article class="project project--video reveal" id="proj-video">
+        <div class="project__meta">
+          <span class="project__num">03</span>
+          <div class="project__info">
+            <h3 class="project__title">Explainer Video</h3>
+            <p class="project__desc">Motion, voice, and image working in concert. A short-form explainer that transforms a dense topic into an accessible, engaging 3–5 minute visual journey.</p>
+            <div class="project__tags">
+              <span>Motion</span>
+              <span>Scriptwriting</span>
+              <span>Video Production</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__media project__media--video">
+          <!-- YouTube Embed — 16:9 responsive wrapper -->
+          <div class="media-frame media-frame--video">
+            <!-- Replace VIDEO_ID with your YouTube video ID -->
+            <iframe
+              id="youtube-embed"
+              src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&color=white"
+              title="Explainer Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+            <!-- Shown as fallback if embed fails -->
+            <div class="media-placeholder media-placeholder--video" id="video-placeholder">
+              <div class="placeholder-inner">
+                <span class="placeholder-ratio">16 : 9</span>
+                <span class="placeholder-label">Explainer Video</span>
+                <span class="placeholder-hint">Replace VIDEO_ID in the iframe src</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─────────────────────────────────────────────
+           PROJECT 04 — PODCAST
+           1:1 square — album-cover style
+           ───────────────────────────────────────────── -->
+      <article class="project project--podcast reveal" id="proj-podcast">
+        <div class="project__media project__media--podcast">
+          <div class="podcast-showcase">
+            <!-- Album Cover Art -->
+            <div class="podcast-cover">
+              <!-- Replace src with your podcast cover art -->
+              <img
+                src="assets/podcast-cover.png"
+                alt="Podcast Cover Art"
+                class="podcast-cover__img"
+                loading="lazy"
+              />
+              <div class="podcast-cover__placeholder">
+                <span>PODCAST</span>
+                <span class="placeholder-hint">Replace src="assets/podcast-cover.png"</span>
+              </div>
+              <div class="podcast-cover__overlay">
+                <div class="podcast-waveform" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="podcast-player">
+              <div class="podcast-player__info">
+                <span class="podcast-player__episode">EP. 01</span>
+                <h4 class="podcast-player__title">Episode Title Here</h4>
+                <span class="podcast-player__duration">00:00 / 00:00</span>
+              </div>
+              <!-- Replace src with your actual audio file -->
+              <audio id="podcast-audio" preload="metadata">
+                <source src="assets/podcast.mp3" type="audio/mpeg" />
+                Your browser does not support audio playback.
+              </audio>
+              <div class="podcast-controls">
+                <button class="podcast-btn podcast-btn--rewind" id="btn-rewind" aria-label="Rewind 15 seconds">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5V3m0 0L9 6m3-3 3 3M4 12a8 8 0 1 0 8-8"/><text x="7" y="17" font-size="5" fill="currentColor" stroke="none">15</text></svg>
+                </button>
+                <button class="podcast-btn podcast-btn--play" id="btn-play" aria-label="Play / Pause">
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="podcast-btn podcast-btn--forward" id="btn-forward" aria-label="Forward 15 seconds">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5V3m0 0 3 3m-3-3L9 6M20 12a8 8 0 1 1-8-8"/><text x="7" y="17" font-size="5" fill="currentColor" stroke="none">15</text></svg>
+                </button>
+              </div>
+              <!-- Progress Bar -->
+              <div class="podcast-progress" id="podcast-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="podcast-progress__track">
+                  <div class="podcast-progress__fill" id="progress-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__meta project__meta--side">
+          <span class="project__num">04</span>
+          <div class="project__info">
+            <h3 class="project__title">Podcast</h3>
+            <p class="project__desc">An intimate audio documentary. Voice-led storytelling stripped of visual aid — where words, silence, and rhythm become the entire design surface.</p>
+            <div class="project__tags">
+              <span>Audio Production</span>
+              <span>Narration</span>
+              <span>Sound Design</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─────────────────────────────────────────────
+           PROJECT 05 — GENIALLY MINIGAME
+           16:9 interactive embed — immersive
+           ───────────────────────────────────────────── -->
+      <article class="project project--game reveal" id="proj-game">
+        <div class="project__meta">
+          <span class="project__num">05</span>
+          <div class="project__info">
+            <h3 class="project__title">Interactive Minigame</h3>
+            <p class="project__desc">An educational interactive experience built in Genially. Click, explore, and discover — learning disguised as play, designed for engagement over instruction.</p>
+            <div class="project__tags">
+              <span>Interactive Design</span>
+              <span>Game Design</span>
+              <span>UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__media project__media--game">
+          <div class="media-frame media-frame--game">
+            <!-- Genially fullscreen button -->
+            <div class="game-toolbar">
+              <span class="game-toolbar__label">Interactive — click to explore</span>
+              <button class="game-toolbar__fullscreen" id="btn-fullscreen" aria-label="Toggle fullscreen">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
+            </div>
+            <!-- Replace GENIALLY_ID with your Genially embed ID -->
+            <iframe
+              id="genially-embed"
+              src="https://view.genially.com/GENIALLY_ID/interactive-content"
+              title="Interactive Minigame"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              scrolling="yes"
+            ></iframe>
+            <div class="media-placeholder media-placeholder--game" id="game-placeholder">
+              <div class="placeholder-inner">
+                <span class="placeholder-ratio">16 : 9 Interactive</span>
+                <span class="placeholder-label">Genially Minigame</span>
+                <span class="placeholder-hint">Replace GENIALLY_ID in the iframe src</span>
+                <a class="placeholder-btn" href="https://genially.com" target="_blank" rel="noopener">Open in Genially →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: CLOSING
+         ============================================================ -->
+    <section class="closing" id="closing">
+      <div class="closing__inner">
+
+        <div class="section-label reveal">
+          <span class="section-label__num">03</span>
+          <span class="section-label__text">Closing</span>
+        </div>
+
+        <div class="closing__content">
+          <div class="closing__left reveal" data-delay="0">
+            <h2 class="closing__headline">
+              Every work<br />
+              is a <em>question</em><br />
+              answered.
+            </h2>
+          </div>
+
+          <div class="closing__right">
+            <div class="closing__text reveal" data-delay="1">
+              <p>This portfolio represents more than five assignments — it is a record of five different conversations between an idea and the medium that carries it. Each format demanded something different, and each demanded something new.</p>
+            </div>
+
+            <div class="closing__student reveal" data-delay="2">
+              <div class="closing__student-line"></div>
+              <div class="closing__student-info">
+                <span class="closing__student-name">Your Name Here</span>
+                <span class="closing__student-course">Multimedia Communications · 2024</span>
+                <span class="closing__student-uni">Your University</span>
+              </div>
+            </div>
+
+            <div class="closing__cta reveal" data-delay="3">
+              <a href="mailto:your@email.com" class="btn btn--primary">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer reveal" data-delay="4">
+          <div class="footer__left">
+            <span class="footer__logo">CANVAS</span>
+            <span class="footer__copy">© 2024 · All works original</span>
+          </div>
+          <div class="footer__right">
+            <span class="footer__made">Crafted with intention.</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+  </main><!-- /content-layer -->
+
+  <script src="main.js"></script>
+</body>
+</html>
