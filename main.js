@@ -654,3 +654,111 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('%cCANVAS — Creative Portfolio', 'color: #4D7CFF; font-weight: bold; font-size: 14px;');
   console.log('%cCinematic Editorial Portfolio System initialized.', 'color: #A1A1AA; font-size: 12px;');
 });
+
+const portrait = document.querySelector('.portrait');
+const planet = document.querySelector('.planet');
+
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY;
+
+  /* =========================
+     PORTRAIT
+     lebih lambat
+  ========================= */
+
+  portrait.style.transform = `
+
+    translateY(${-scrollY * 0.12}px)
+
+    translateX(${scrollY * 0.02}px)
+
+    scale(${1 + scrollY * 0.00015})
+
+  `;
+
+  /* =========================
+     PLANET
+     lebih cepat
+  ========================= */
+
+  planet.style.transform = `
+
+    translateY(${-scrollY * 0.45}px)
+
+    translateX(${scrollY * 0.1}px)
+
+    scale(${1 + scrollY * 0.0005})
+
+    rotate(${scrollY * 0.01}deg)
+
+  `;
+
+});
+
+const collages = document.querySelectorAll('.collage');
+
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY;
+
+  collages.forEach((img, index) => {
+
+    /* =========================
+       DEPTH TIERS
+    ========================= */
+
+    let speedY;
+    let speedX;
+    let scale;
+
+    /* FAR BACKGROUND */
+    if(index < 2){
+
+      speedY = 0.08;
+      speedX = 0.02;
+      scale  = 1;
+
+    }
+
+    /* MID */
+    else if(index < 5){
+
+      speedY = 0.25;
+      speedX = 0.06;
+      scale  = 1.03;
+
+    }
+
+    /* FOREGROUND */
+    else{
+
+      speedY = 0.55;
+      speedX = 0.12;
+      scale  = 1.08;
+
+    }
+
+    /* ROTATION */
+
+    const rotate =
+      (index % 2 === 0 ? -1 : 1)
+      * (8 + index);
+
+    /* FINAL TRANSFORM */
+
+    img.style.transform = `
+
+      translateY(${-scrollY * speedY}px)
+
+      translateX(${scrollY * speedX}px)
+
+      rotate(${rotate}deg)
+
+      scale(${scale})
+
+    `;
+
+  });
+
+});
