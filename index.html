@@ -13,12 +13,13 @@
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="parallax.css" />
 </head>
 <body>
 
 <!-- VIDEO BACKGROUND -->
 <div class="video-background">
-
+  <canvas id="space-stars"></canvas>
   <video autoplay muted loop playsinline>
     <source src="assets/video.mp4" type="video/mp4">
   </video>
@@ -71,7 +72,7 @@
       <div class="hero__inner">
 
         <!-- Eyebrow label -->
-        <div class="hero__eyebrow reveal">
+        <div class="hero__eyebrow reveal parallax-fade-el" data-parallax-speed="-0.04">
           <span class="hero__eyebrow-line"></span>
           <span class="hero__eyebrow-text">Universitas Pendidikan Indonesia — 2024</span>
         </div>
@@ -79,16 +80,16 @@
         <!-- Giant editorial headline -->
         <div class="hero__headline-wrap">
           <h1 class="hero__headline">
-            <span class="hero__hl-line reveal" data-delay="0">Arsip</span>
-            <span class="hero__hl-line reveal" data-delay="1">
+            <span class="hero__hl-line reveal parallax-el" data-delay="0" data-parallax-speed="-0.03">Arsip</span>
+            <span class="hero__hl-line reveal parallax-el" data-delay="1" data-parallax-speed="-0.06">
               <em class="hero__hl-italic">media</em>
             </span>
-            <span class="hero__hl-line reveal" data-delay="2">Digital</span>
+            <span class="hero__hl-line reveal parallax-el" data-delay="2" data-parallax-speed="-0.09">Digital</span>
           </h1>
         </div>
 
         <!-- Supporting text — offset right -->
-        <div class="hero__subtext reveal" data-delay="3">
+        <div class="hero__subtext reveal parallax-fade-el" data-delay="3" data-parallax-speed="-0.08">
           <p>Sebuah website portofolio yang berisi kumpulan tugas mata kuliah literasi TIK dan Media Pembelajaran.</p>
         </div>
 
@@ -111,14 +112,14 @@
     
  <div class="hero__collage">
 
-  <img src="assets/img1.svg" class="collage collage--1">
-  <img src="assets/img2.svg" class="collage collage--2">
-  <img src="assets/img3.svg" class="collage collage--3">
-  <img src="assets/img4.svg" class="collage collage--4">
-  <img src="assets/img5.svg" class="collage collage--5">
-  <img src="assets/img6.svg" class="collage collage--6">
-  <img src="assets/img7.svg" class="collage collage--7">
-  <img src="assets/img8.svg" class="collage collage--8">
+  <img src="assets/img1.svg" class="collage collage--1 parallax-el" data-parallax-speed="-0.15" data-parallax-rotate="-0.02">
+  <img src="assets/img2.svg" class="collage collage--2 parallax-el" data-parallax-speed="-0.1" data-parallax-rotate="0.015">
+  <img src="assets/img3.svg" class="collage collage--3 parallax-el" data-parallax-speed="-0.3" data-parallax-rotate="0.02">
+  <img src="assets/img4.svg" class="collage collage--4 parallax-el" data-parallax-speed="-0.28" data-parallax-rotate="-0.01">
+  <img src="assets/img5.svg" class="collage collage--5 parallax-el" data-parallax-speed="-0.2" data-parallax-rotate="0.018">
+  <img src="assets/img6.svg" class="collage collage--6 parallax-el" data-parallax-speed="-0.35" data-parallax-rotate="-0.015">
+  <img src="assets/img7.svg" class="collage collage--7 parallax-el" data-parallax-speed="-0.25" data-parallax-rotate="0.02">
+  <img src="assets/img8.svg" class="collage collage--8 parallax-el" data-parallax-speed="-0.32" data-parallax-rotate="-0.012">
 
 </div>   
     
@@ -150,31 +151,33 @@
       <img
         src="assets/me.svg"
         alt="Portrait"
-        class="portrait"
+        class="portrait parallax-el"
+        data-parallax-speed="-0.12"
         >
 
       <!-- PLANET -->
       <img
         src="assets/planet.svg"
         alt="Planet"
-        class="planet"
+        class="planet parallax-el"
+        data-parallax-speed="-0.38"
       >
 
     </div>
      </div>
 
           <div class="about__right">
-            <div class="about__text-block reveal" data-delay="1">
+            <div class="about__text-block reveal parallax-fade-el" data-delay="1" data-parallax-speed="-0.03">
               <h3 class="about__subhead">Tujuan dibuatnya web</h3>
               <p>Web ini dibuat untuk memenuhi salah satu tugas mata kuliah Literasi TIK dan Media Pembelajaran, yaitu membuat wadah (web atau apapun) yang bisa menampung seluruh tugas mata kuliah, berupa Infografis, Poster, Video Eksplainer, Podcast, dan media pembelajaran berbentuk Gamifikasi.</p>
             </div>
 
-            <div class="about__text-block reveal" data-delay="2">
+            <div class="about__text-block reveal parallax-fade-el" data-delay="2" data-parallax-speed="-0.05">
               <h3 class="about__subhead">Identitas Pembuat</h3>
               <p>Nama saya adalah Muhammad Bilal Maulidan dengan NIM 2404549, saat ini saya sedang belajar di Universitas Pendidikan Indonesia di program studi Pendidikan Guru Sekolah Dasar sejak tahun 2024.</p>
             </div>
 
-            <div class="about__text-block reveal" data-delay="3">
+            <div class="about__text-block reveal parallax-fade-el" data-delay="3" data-parallax-speed="-0.07">
               <h3 class="about__subhead">Alat</h3>
               <div class="about__tools">
                 <span class="tool-tag">Canva</span>
@@ -204,7 +207,7 @@
           <span class="section-label__num">02</span>
           <span class="section-label__text">TUGAS</span>
         </div>
-        <h2 class="projects__headline reveal">
+        <h2 class="projects__headline reveal parallax-el" data-parallax-speed="-0.05">
           Tugas yang<br /><em>saya kerjakan.</em>
         </h2>
       </div>
@@ -478,7 +481,7 @@
         <div class="closing__content">
 
   <!-- LEFT -->
-  <div class="closing__left reveal">
+  <div class="closing__left reveal parallax-el" data-parallax-speed="-0.08">
 
     <h2 class="closing__headline">
       Terima kasih<br>
@@ -488,7 +491,7 @@
   </div>
 
   <!-- RIGHT -->
-  <div class="closing__right">
+  <div class="closing__right parallax-fade-el" data-parallax-speed="-0.04">
 
     <div class="closing__text reveal" data-delay="1">
 
@@ -529,5 +532,6 @@
   </main><!-- /content-layer -->
 
   <script src="main.js"></script>
+  <script src="parallax.js"></script>
 </body>
 </html>

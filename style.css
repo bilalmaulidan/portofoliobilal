@@ -1763,6 +1763,7 @@ ul { list-style: none; }
   .collage--8{
 
     display:none;
+  }
 
   .collage--1{
 
@@ -1777,12 +1778,10 @@ ul { list-style: none; }
 
   }
 
-    .collage--7{
+  .collage--7{
 
     bottom: 8%;
     left: 18%;
-
-  }
 
   }
 

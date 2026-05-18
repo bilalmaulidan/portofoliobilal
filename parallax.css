@@ -1,0 +1,60 @@
+/* ============================================================
+   PORTFOLIO — Cinematic Parallax Stylesheet
+   parallax.css — Utilities for hardware acceleration and particles
+   ============================================================ */
+
+/* ─────────────────────────────────────────────
+   1. CANVAS SPACE STARFIELD
+   ───────────────────────────────────────────── */
+#space-stars {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2; /* Sits above video background overlay (-10) and below content (10) */
+  pointer-events: none; /* User can click through to interact with content */
+  mix-blend-mode: screen; /* Blends beautifully with video background */
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────
+   2. HARDWARE ACCELERATION & OPTIMIZATION
+   ───────────────────────────────────────────── */
+.parallax-el {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Text floating fade elements */
+.parallax-fade-el {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: opacity 0.1s linear; /* Smooth minor opacity fade */
+}
+
+/* 3. SUBTLE GLOW/HOVER EFFECTS FOR COLLAGE IMAGES (Space vibe) */
+.collage {
+  transition: box-shadow 0.6s var(--ease-cinematic), filter 0.6s var(--ease-cinematic);
+}
+.collage:hover {
+  filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+}
+
+/* 4. PREFERS REDUCED MOTION BYPASS */
+@media (prefers-reduced-motion: reduce) {
+  #space-stars {
+    display: none !important;
+  }
+  .parallax-el,
+  .parallax-fade-el {
+    transform: none !important;
+    opacity: 1 !important;
+    will-change: auto !important;
+  }
+}
