@@ -99,7 +99,7 @@ body {
   object-fit: cover;
 
   filter:
-    brightness(.35)
+    brightness(.65)
     contrast(1.1)
     saturate(.8);
 
