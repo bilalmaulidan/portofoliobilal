@@ -140,6 +140,68 @@ const RevealSystem = (() => {
 
 
 /* ─────────────────────────────────────────────
+   SECTION DEPTH TRANSITIONS
+
+   Adds scroll-based progress to each major section
+   so sections feel like layered scenes entering the
+   viewport instead of static blocks.
+   ───────────────────────────────────────────── */
+
+const SectionDepthSystem = (() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let sections = [];
+  let ticking = false;
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function updateSection(section) {
+    const rect = section.getBoundingClientRect();
+    const viewportH = window.innerHeight || 1;
+    const start = viewportH * 0.92;
+    const end = viewportH * 0.2;
+    const rawProgress = (start - rect.top) / (start - end);
+    const progress = clamp(rawProgress, 0, 1);
+
+    section.style.setProperty('--section-progress', progress.toFixed(3));
+    section.classList.toggle('visible-depth', progress > 0.18);
+  }
+
+  function update() {
+    sections.forEach(updateSection);
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  function init() {
+    sections = Array.from(document.querySelectorAll('.section-depth'));
+    if (!sections.length) return;
+
+    if (prefersReducedMotion) {
+      sections.forEach(section => {
+        section.style.setProperty('--section-progress', '1');
+        section.classList.add('visible-depth');
+      });
+      return;
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    update();
+  }
+
+  return { init };
+})();
+
+
+/* ─────────────────────────────────────────────
    NAVIGATION SYSTEM
    
    - Scroll state: adds .scrolled class for frosted effect
@@ -643,6 +705,7 @@ const HeroContentParallax = (() => {
 document.addEventListener('DOMContentLoaded', () => {
   ParallaxSystem.init();
   RevealSystem.init();
+  SectionDepthSystem.init();
   NavSystem.init();
   CursorSystem.init();
   PodcastPlayer.init();

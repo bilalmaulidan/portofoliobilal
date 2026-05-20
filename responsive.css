@@ -39,6 +39,11 @@
     gap: 3rem;
   }
 
+  .section-collage__img--about-3,
+  .section-collage__img--closing-3 {
+    display: none;
+  }
+
   .about__headline {
     font-size: clamp(2.5rem, 6vw, 4rem);
   }
@@ -79,6 +84,22 @@
    Optimized parallax, simplified motion, stacked layouts
    ───────────────────────────────────────────── */
 @media (max-width: 768px) {
+
+  .section-depth {
+    --section-drift: calc((1 - var(--section-progress)) * 28px);
+    --section-scale: 1;
+  }
+
+  .section-depth::before {
+    height: 22%;
+    opacity: calc((1 - var(--section-progress)) * 0.35);
+  }
+
+  .section-depth > .about__inner,
+  .section-depth > .projects__header,
+  .section-depth > .closing__inner {
+    transition-duration: 0.25s;
+  }
 
   /* Reduce parallax intensity and blob sizes on mobile */
   .blob {
@@ -174,6 +195,23 @@
     gap: 3rem;
   }
 
+  .section-collage__img {
+    opacity: 0.42;
+    filter: saturate(0.85) contrast(1.05) !important;
+  }
+
+  .section-collage__img--about-1 {
+    width: 92px;
+    top: 7%;
+    right: -28px;
+  }
+
+  .section-collage__img--about-2 {
+    width: 82px;
+    bottom: 6%;
+    left: -32px;
+  }
+
   .about__headline {
     font-size: clamp(2.5rem, 10vw, 3.5rem);
   }
@@ -194,6 +232,10 @@
 
   .projects__headline {
     font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .section-collage--projects {
+    display: none;
   }
 
   .project {
@@ -250,6 +292,18 @@
 
   .closing__headline {
     font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .section-collage__img--closing-1 {
+    width: 84px;
+    top: 8%;
+    left: -34px;
+  }
+
+  .section-collage__img--closing-2 {
+    width: 105px;
+    bottom: 3%;
+    right: -36px;
   }
 
   /* ─── Footer ─── */
